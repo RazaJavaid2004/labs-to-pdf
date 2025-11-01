@@ -1,7 +1,7 @@
 # 🧾 Automated Lab Report Generator (Python + ReportLab)
 
-This project automatically compiles, runs, and generates PDF lab reports for C++ programming labs.
-It takes care of everything — from compiling `.cpp` files and running them with specific test inputs to formatting the results neatly into a professional, university-style PDF with your name, roll number, and department.
+This project automatically compiles, runs, and generates PDF lab reports for programming labs.
+It takes care of everything — from compiling files and running them with specific test inputs to formatting the results neatly into a professional, university-style PDF with your name, roll number, and department.
 
 # 📸 Sample Output
 
