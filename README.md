@@ -16,7 +16,7 @@ The PDF can be accessed [here](https://github.com/muhammadrafayasif/labs-to-pdf/
 
 # ⚙️ Features
 
-- Automatic Compilation — Compiles all .cpp files in each lab folder using g++
+- Automatic Compilation — Compiles all files in each lab folder using g++
 - Input Injection — Feeds predefined test input to each program
 - Output Capture — Captures console output automatically
 - Beautiful PDF Generation — Uses ReportLab for clean, formatted lab reports
@@ -43,7 +43,7 @@ The PDF can be accessed [here](https://github.com/muhammadrafayasif/labs-to-pdf/
 You’ll need:
 
 - Python 3.8+
-- g++ compiler (available in PATH)
+- A compiler of your choice
 - ReportLab for PDF generation
 
 Install dependencies with:
@@ -81,7 +81,7 @@ python labs_to_pdf.py
 
 # 🧠 Tips
 
-- Make sure your .cpp files compile cleanly without manual input prompts (use the provided test input).
+- Make sure your files compile cleanly without manual input prompts (use the provided test input).
 - If a file doesn’t require input, simply set its entry in INPUTS to an empty string "".
 - You can customize colors, fonts, and styles by modifying the paragraph and table styles in the script.
 
