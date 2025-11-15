@@ -18,7 +18,7 @@ from reportlab.lib import colors
 # ---------- CONFIGURATION ----------
 EXTENSION = "cpp"
 LOGO_PATH = "./logo.png"
-PROCESS = ["Lab 5"]
+PROCESS = ["Lab 1", "Lab 2", "Lab 3", "Lab 4", "Lab 5", "Lab 6", "Lab 7", "Lab 8", "Lab 9", "Lab 10", "Lab 11"]
 EXECUTION_TIMEOUT = 5  # seconds
 
 UNIVERSITY = "NED University of Engineering and Technology"
@@ -57,7 +57,7 @@ def terminal_block(text: str):
 
 
 def compile_and_run(src_path: Path):
-    """Compile and run a C++ file, returning output or error."""
+    """Compile and run a C++ file, returning output or error with robust handling."""
     output_path = src_path.with_suffix("")  # compiled executable path
     compile_cmd = ["g++", str(src_path), "-o", str(output_path)]
 
@@ -67,26 +67,28 @@ def compile_and_run(src_path: Path):
 
     try:
         start_time = datetime.now()
+        # Compile the source file
         subprocess.run(compile_cmd, check=True)
 
+        # Run the compiled program with a generous timeout
         result = subprocess.run(
             [str(output_path)],
             capture_output=True,
             text=True,
-            timeout=EXECUTION_TIMEOUT
+            timeout=60  # best practice: allow up to 60s for long-running programs
         )
         end_time = datetime.now()
 
+        # Collect both stdout and stderr
         output = (result.stdout + result.stderr).replace(": ", ":\n").strip()
         output += f"\n[Execution Time: {(end_time - start_time).total_seconds():.2f}s]"
 
         return output, None
 
     except subprocess.TimeoutExpired:
-        return None, "⏱️ Execution timed out (program may be waiting for input)."
+        return None, "⏱️ Execution timed out (program may be waiting for input or running too long)."
     except subprocess.CalledProcessError as e:
         return None, f"❌ Compilation or execution failed:\n{e.stderr or str(e)}"
-
 
 def build_title_page(lab_name: str):
     """Build the title page for a lab report."""
