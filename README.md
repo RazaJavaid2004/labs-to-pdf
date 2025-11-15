@@ -105,6 +105,5 @@ python make_pdfs.py
 This project is released under the [MIT License](LICENSE).
 
 Feel free to modify and adapt it for your institution or personal use.
-```
 
 ---
